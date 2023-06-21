@@ -10,29 +10,27 @@ let firstGuess = 1;
 let secondGuess = 2;
 
 for (let i = 0; i < iterations; i++) {
-  const a = firstGuess;
-  const b = secondGuess;
-  const fX0 = f(x0);
-  const fX1 = f(x1);
-  const x = x1 - (fX1 * (x1 - x0)) / (fX1 - fX0);
-  const fX2 = f(x2);
-  const bMinusA = b - a;
+  const x0 = firstGuess;
+  const x1 = secondGuess;
+  const fX0 = main(x0);
+  const fX1 = main(x1);
+  const x2 = x1 - (fX1 * (x1 - x0)) / (fX1 - fX0);
+  const fX2 = main(x2);
 
   if (fX2 < 0) {
-    firstGuess = x;
+    firstGuess = x2;
   }
 
   console.log({
-    a,
-    b,
+    x0,
+    x1,
     fX0,
     fX1,
-    x,
+    x2,
     fX2,
-    bMinusA,
   });
   if (fX2 < 0) {
-    firstGuess = x;
+    firstGuess = x2;
   }
 }
 // Secant method
@@ -62,4 +60,3 @@ for (let i = 0; i < iterations; i++) {
 
 //   return x.toFixed(4);
 // }
-

@@ -12,10 +12,10 @@ let secondGuess = 3;
 for (let i = 0; i < iterations; i++) {
   const a = firstGuess;
   const b = secondGuess;
-  const fA = f(a);
-  const fB = f(a);
+  const fA = main(a);
+  const fB = main(b);
   const c = (a * fB - b * fA) / (fB - fA);
-  const fC = f(c);
+  const fC = main(c);
   const bMinusA = b - a;
 
   if (fC < 0) {
