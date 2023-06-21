@@ -2,37 +2,32 @@ function newtonRaphson() {}
 
 const iterations = 5;
 
-function main(x) {
+function f(x) {
   return 2 * x ** 2 - 3 * x - 4;
 }
 
-let firstGuess = 1;
-let secondGuess = 5;
+let x = x0;
 
 for (let i = 0; i < iterations; i++) {
-  const a = firstGuess;
-  const b = secondGuess;
-  const fX = main(x);
-  const fPrimeX = main(x);
-  const c = (a + b) / 2;
-  const cFunc = main(c);
-  const bMinusA = b - a;
+  const x0 = x;
+  const fValue = f(x);
+  const fPrimeValue = fPrime(x);
+  const x = x - fValue / fPrimeValue;
+  const cFunc = f(x);
 
   if (cFunc < 0) {
-    firstGuess = c;
+    x = x0;
   }
 
   console.log({
-    a,
-    b,
+    x0,
     fX,
     fPrimeX,
-    c,
+    x,
     cFunc,
-    bMinusA,
   });
   if (cFunc < 0) {
-    firstGuess = c;
+    x = x0;
   }
 }
 // Bisection method
